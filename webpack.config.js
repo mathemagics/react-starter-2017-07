@@ -1,18 +1,25 @@
-
 const path = require('path');
+const VENDOR_LIBS = [
+  'axios', 'immutable', 'lodash', 'react', 'react-dom', 'react-redux',
+  'redux', 'styled-components'
+]
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    bundle: './src/index.js',
+    vendor: VENDOR_LIBS
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'bundle.js',
+    filename: '[name].js',
     publicPath: 'build/'
   },
   module: {
     rules: [
       {
         use: 'babel-loader',
-        test: /\.js$/
+        test: /\.js$/,
+        exclude: /node_modules/
       },
       {
         test: /\.(jpe?g|png|svg|gif)$/,
@@ -23,7 +30,15 @@ module.exports = {
           },
           'image-webpack-loader'
         ]
-      }
+      },
+      {
+        test: /\.(otf|ttf|svg|eot)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'fonts/[hash].[ext]',
+        },
+      },
     ]
-  }
+  },
+  plugins: []
 }
