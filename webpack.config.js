@@ -1,8 +1,10 @@
 const path = require('path');
+const webpack = require('webpack');
+
 const VENDOR_LIBS = [
   'axios', 'immutable', 'lodash', 'react', 'react-dom', 'react-redux',
   'redux', 'styled-components'
-]
+];
 
 module.exports = {
   entry: {
@@ -40,5 +42,9 @@ module.exports = {
       },
     ]
   },
-  plugins: []
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor'],
+    }),
+  ]
 }
