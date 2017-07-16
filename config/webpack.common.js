@@ -4,35 +4,35 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
   'axios', 'immutable', 'lodash', 'react', 'react-dom', 'react-redux',
-  'redux', 'styled-components'
+  'redux', 'styled-components',
 ];
 
 module.exports = {
   entry: {
     bundle: './src/index.js',
-    vendor: VENDOR_LIBS
+    vendor: VENDOR_LIBS,
   },
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: '[name].[chunkhash].js',
-    publicPath: 'build/'
+    publicPath: 'build/',
   },
   module: {
     rules: [
       {
         use: 'babel-loader',
         test: /\.js$/,
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(jpe?g|png|svg|gif)$/,
         use: [
           {
             loader: 'url-loader',
-            options: { limit: 40000 }
+            options: { limit: 40000 },
           },
-          'image-webpack-loader'
-        ]
+          'image-webpack-loader',
+        ],
       },
       {
         test: /\.(otf|ttf|svg|eot)$/,
@@ -41,14 +41,14 @@ module.exports = {
           name: 'fonts/[hash].[ext]',
         },
       },
-    ]
+    ],
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
     }),
     new HtmlWebpackPlugin({
-      template: 'src/index.html'
-    })
-  ]
-}
+      template: 'src/index.html',
+    }),
+  ],
+};
