@@ -13,6 +13,16 @@ module.exports = {
       {
         use: 'babel-loader',
         test: /\.js$/
+      },
+      {
+        test: /\.(jpe?g|png|svg|gif)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: { limit: 40000 }
+          },
+          'image-webpack-loader'
+        ]
       }
     ]
   }
