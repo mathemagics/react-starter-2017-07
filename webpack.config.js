@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const VENDOR_LIBS = [
   'axios', 'immutable', 'lodash', 'react', 'react-dom', 'react-redux',
@@ -13,7 +14,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: '[name].js',
+    filename: '[name].[chunkhash].js',
     publicPath: 'build/'
   },
   module: {
@@ -44,7 +45,10 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor'],
+      names: ['vendor', 'manifest'],
     }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.html'
+    })
   ]
 }
