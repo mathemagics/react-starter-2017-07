@@ -4,5 +4,8 @@
     "import/resolver": {
       "babel-module": {}
     }
+  },
+  "env": {
+        "browser": true,
   }
 }

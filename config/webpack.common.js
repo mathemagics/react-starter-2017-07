@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const path = require('path');
 const paths = require('./paths');
 
 const VENDOR_LIBS = [
@@ -7,16 +8,15 @@ const VENDOR_LIBS = [
   'redux', 'styled-components',
 ];
 
-
 module.exports = {
   entry: {
     bundle: paths.appIndexJs,
     vendor: VENDOR_LIBS,
   },
   output: {
-    path: paths.appBuild,
-    filename: '[name].[chunkhash].js',
-    publicPath: paths.projectSrc,
+    path: path.join(__dirname, '../build'),
+    filename: '[name].[hash].js',
+    publicPath: '../build',
   },
   module: {
     rules: [
