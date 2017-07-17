@@ -1,21 +1,22 @@
-const path = require('path');
 const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const paths = require('./paths');
 
 const VENDOR_LIBS = [
   'axios', 'immutable', 'lodash', 'react', 'react-dom', 'react-redux',
   'redux', 'styled-components',
 ];
 
+
 module.exports = {
   entry: {
-    bundle: './src/index.js',
+    bundle: paths.appIndexJs,
     vendor: VENDOR_LIBS,
   },
   output: {
-    path: path.resolve(__dirname, 'build'),
+    path: paths.appBuild,
     filename: '[name].[chunkhash].js',
-    publicPath: 'build/',
+    publicPath: paths.projectSrc,
   },
   module: {
     rules: [
@@ -44,11 +45,9 @@ module.exports = {
     ],
   },
   plugins: [
+    new CleanWebpackPlugin([paths.appBuild], { root: paths.projectRoot }),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'manifest'],
-    }),
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
     }),
   ],
 };
