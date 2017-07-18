@@ -2,7 +2,10 @@
   "presets": ["env", "stage-2", "react"],
    "plugins": [
     ["module-resolver", {
-      "root": ["/"]
+      "root": ["/"],
+      "alias": {
+        "features": "./src/features"
+      }
     }]
   ]
 }

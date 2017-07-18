@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
+import mainReducer from 'features/main/redux/MainDuck';
 
 const rootReducer = combineReducers({
-  state: (state = {}) => state,
+  main: mainReducer,
 });
 
 export default rootReducer;
