@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import mainReducer from 'features/main/redux/MainDuck';
 
 const rootReducer = combineReducers({

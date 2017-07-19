@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import MainComponent from '../components/MainComponent';
 import { loadMainContent } from '../redux/MainDuck';
-
-const mapStateToProps = ({ main: { mainContent } }) => ({ mainContent });
 
 class MainContainer extends Component {
   componentWillMount() {
@@ -17,6 +16,8 @@ class MainContainer extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({ mainContent: state.getIn(['main', 'mainContent']) });
 
 export default connect(mapStateToProps, { loadMainContent })(MainContainer);
 
