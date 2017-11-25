@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import { loadMainContent } from 'Ducks/MainDuck';
 import MainComponent from '../components/MainComponent';
-import { loadMainContent } from '../redux/MainDuck';
 
 class MainContainer extends Component {
   componentWillMount() {

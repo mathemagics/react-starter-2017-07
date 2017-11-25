@@ -5,9 +5,9 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { Map } from 'immutable';
 
-import MainContainer from 'features/main/containers/MainContainer';
+import MainContainer from 'Features/main/containers/MainContainer';
 
-import reducers from './redux';
+import reducers from 'Ducks';
 
 const initialState = Map();
 

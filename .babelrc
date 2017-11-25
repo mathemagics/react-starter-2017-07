@@ -4,7 +4,8 @@
     ["module-resolver", {
       "root": ["/"],
       "alias": {
-        "features": "./src/features"
+        "Features": "./src/features",
+        "Ducks": "./src/ducks"
       }
     }]
   ]
