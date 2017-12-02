@@ -5,6 +5,9 @@ import PropTypes from 'prop-types';
 import { loadMainContent } from 'Ducks/MainDuck';
 import { MainComponent } from '../components/MainComponent';
 
+const mapStateToProps = state => ({ mainContent: state.getIn(['main', 'mainContent']) });
+
+@connect(mapStateToProps, { loadMainContent })
 class MainContainer extends PureComponent {
   componentWillMount() {
     this.props.loadMainContent();
@@ -16,10 +19,6 @@ class MainContainer extends PureComponent {
     );
   }
 }
-
-const mapStateToProps = state => ({ mainContent: state.getIn(['main', 'mainContent']) });
-
-export default connect(mapStateToProps, { loadMainContent })(MainContainer);
 
 MainContainer.propTypes = {
   mainContent: PropTypes.string.isRequired,
