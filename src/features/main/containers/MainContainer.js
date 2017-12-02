@@ -14,7 +14,7 @@ export class MainContainer extends PureComponent {
     mainContent: string.isRequired,
     loadMainContent: func.isRequired,
   }
-  componentWillMount() {
+  componentDidMount() {
     this.props.loadMainContent();
   }
   render() {

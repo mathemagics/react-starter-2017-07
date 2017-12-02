@@ -6,7 +6,9 @@
   "scripts": {
     "build:dev": "webpack --env=dev --progress --profile --colors --config config/webpack.config.js",
     "build:prod": "webpack --env=prod --progress --profile --colors --config config/webpack.config.js",
-    "dev": "webpack-dev-server --env=dev --progress --inline --colors --config config/webpack.config.js"
+    "dev": "webpack-dev-server --env=dev --progress --inline --colors --config config/webpack.config.js",
+    "lint": "eslint --ext .jsx --ext .js .",
+    "lint-fix": "eslint --ext .jsx --ext .js . --fix"
   },
   "author": "",
   "license": "ISC",
