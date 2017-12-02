@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import { createElement, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { loadMainContent } from 'Ducks/MainDuck';
 import MainComponent from '../components/MainComponent';
 
-class MainContainer extends Component {
+class MainContainer extends PureComponent {
   componentWillMount() {
     this.props.loadMainContent();
   }

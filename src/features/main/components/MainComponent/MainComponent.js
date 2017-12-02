@@ -1,4 +1,4 @@
-import React from 'react';
+import { createElement } from 'react';
 import PropTypes from 'prop-types';
 
 const MainComponent = props => <div>{props.content}</div>;

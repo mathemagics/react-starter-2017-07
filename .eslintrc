@@ -4,12 +4,17 @@
   "settings": {
     "import/resolver": {
       "babel-module": {}
+    },
+    "react": {
+      "pragma": "createElement"
     }
   },
   "env": {
-        "browser": true
+    "browser": true
   },
   "rules": {
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prefer-stateless-function": [2, { "ignorePureComponents": "true" }],
+    "import/prefer-default-export": 0
   }
 }
