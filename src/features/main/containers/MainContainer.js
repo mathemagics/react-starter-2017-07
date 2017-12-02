@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { loadMainContent } from 'Ducks/MainDuck';
-import MainComponent from '../components/MainComponent';
+import { MainComponent } from '../components/MainComponent';
 
 class MainContainer extends PureComponent {
   componentWillMount() {
