@@ -1,8 +1,14 @@
-import { createElement } from 'react';
-import PropTypes from 'prop-types';
+import { createElement, PureComponent } from 'react';
+import { string } from 'prop-types';
 
-export const MainComponent = props => <div>{props.content}</div>;
+export class MainComponent extends PureComponent {
+  static propTypes = {
+    content: string.isRequired,
+  }
 
-MainComponent.propTypes = {
-  content: PropTypes.string.isRequired,
-};
+  render() {
+    return (
+      <div>{this.props.content}</div>
+    );
+  }
+}

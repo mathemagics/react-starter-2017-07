@@ -1,14 +1,19 @@
 import { createElement, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import { string, func } from 'prop-types';
 
 import { loadMainContent } from 'Ducks/MainDuck';
 import { MainComponent } from '../components/MainComponent';
 
 const mapStateToProps = state => ({ mainContent: state.getIn(['main', 'mainContent']) });
+const mapDispatchToProps = { loadMainContent };
 
-@connect(mapStateToProps, { loadMainContent })
-class MainContainer extends PureComponent {
+@connect(mapStateToProps, mapDispatchToProps)
+export class MainContainer extends PureComponent {
+  static propTypes = {
+    mainContent: string.isRequired,
+    loadMainContent: func.isRequired,
+  }
   componentWillMount() {
     this.props.loadMainContent();
   }
@@ -19,8 +24,3 @@ class MainContainer extends PureComponent {
     );
   }
 }
-
-MainContainer.propTypes = {
-  mainContent: PropTypes.string.isRequired,
-  loadMainContent: PropTypes.func.isRequired,
-};
